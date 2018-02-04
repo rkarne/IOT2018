@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Application</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <style>
+    body,
+    .jumbotron {
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+
+    </div>
+  <!-- ⚡⚡⚡ start javascript ⚡⚡⚡-->
+  <script>
+$(function(){
+alert("hello");
+if(navigator.geolocation){
+    window.onload = function () {
+        var currentPosition;
+    function getCurrentLocation (position) {
+        currentPosition = position;
+        latitude = currentPosition.coords.latitude;
+        longitude = currentPosition.coords.longitude;
+
+        //AJAX request
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&APPID=9bb216cfee25f94a006f77bc243ae5f9", function (data) {
+            var rawJson = JSON.stringify(data);
+            var json = JSON.parse(rawJson);
+            updateWeather(json); //Update Weather parameters
+        });
+    }
+    navigator.geolocation.getCurrentPosition(getCurrentLocation);
+    alert(getCurrentLocation);
+
+    function updateWeather(json){
+    var weather = json.weather[0].description;
+    if(weather.indexOf("rain") >= 0) {
+        skycons.set("animated-icon", Skycons.RAIN);
+    }
+    else if (weather.indexOf("sunny") >= 0) {
+        skycons.set("animated-icon", Skycons.CLEAR_DAY);
+    }
+}
+}
+}
+});
+
+
+    
+  </script>
+</body>
