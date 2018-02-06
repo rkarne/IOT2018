@@ -1,0 +1,26 @@
+{
+  "name": "iotdemo",
+  "version": "1.0.0",
+  "description": "iot demo class for npm",
+  "main": "server.js",
+  "scripts": {
+    "test": "tes",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkarne/IOT2018.git"
+  },
+  "keywords": [
+    "yes"
+  ],
+  "author": "roja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkarne/IOT2018/issues"
+  },
+  "homepage": "https://github.com/rkarne/IOT2018#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
